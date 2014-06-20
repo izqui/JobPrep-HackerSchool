@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+var lib = require('./pb'),
+	PhonebookCommands = lib.PhonebookCommands,
+	Parser = lib.Parser
+
+var parser = new Parser()
+parser.addCommand("create", PhonebookCommands.create)
+parser.addCommand("lookup", PhonebookCommands.lookup)
+parser.addCommand("reverse-lookup", PhonebookCommands.reverse)
+parser.addCommand("add", PhonebookCommands.add)
+parser.addCommand("remove", PhonebookCommands.remove)
+parser.addCommand("change", PhonebookCommands.change)
+parser.addCommand("much", PhonebookCommands.much)
+
+parser.setDefaultCommand("lookup")
+
+parser.start(process.argv.slice(2))
