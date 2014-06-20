@@ -6,7 +6,6 @@ __dirname = process.cwd()
 var taffy = require('taffy')
 
 var Parser = function (){
-
 	this.commands = {},
 	this.defaultCommand = null
 }
