@@ -66,6 +66,7 @@ func (w *Website) Link(render render.Render, params martini.Params, db linkdb) {
 		if err == nil {
 
 			render.Redirect(link.Url)
+			db.SaveVisit(link)
 		}
 	}
 

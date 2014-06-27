@@ -59,9 +59,22 @@ func (db linkdb) Save(link Link) (string, error) {
 	return hash, nil
 }
 
-/*func (db linkdb) SaveVisit(link Link) error {
+func (db linkdb) SaveVisit(link Link) error {
 
-}*/
+	var hash = link.Hash()
+
+	link, err := db.Get(hash)
+
+	if err == nil {
+
+		link.Visits++
+		db[hash] = link
+
+		return nil
+	}
+
+	return errors.New("Not existing link")
+}
 
 // Martini mapper
 
