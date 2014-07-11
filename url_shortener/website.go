@@ -38,6 +38,7 @@ func (w *Website) LinkInfo(render render.Render, params martini.Params, db linkd
 		if err == nil {
 
 			url := fmt.Sprintf("%s%s", baseurl, linkParam)
+
 			data := struct {
 				Short string
 				Link  Link
