@@ -7,7 +7,8 @@ import (
 
 func main() {
 
-	v, _ := decode([]byte("d5:hellold2:hi3:bye2:wileeee"))
+	v, _ := decode([]byte("d5:hellold2:hi3:bye2:wili30ei19eeeee"))
+
 	fmt.Println(v)
 }
 
@@ -24,7 +25,7 @@ func decode(b []byte) (interface{}, []byte) {
 
 		n, _ := strconv.Atoi(string(p))
 
-		return n, b[:i+1] //Don't return the 'e'
+		return n, b[i+2:] //Don't return the 'e'
 
 	case 'l':
 
