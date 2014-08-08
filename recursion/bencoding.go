@@ -8,24 +8,23 @@ import (
 func main() {
 
 	v, _ := decode([]byte("d5:hellold2:hi3:bye2:wili30ei19eeeee"))
-
 	fmt.Println(v)
 }
 
 func decode(b []byte) (interface{}, []byte) {
 
-	i := 0
-	switch b[i] {
+	switch b[0] {
 	case 'i':
 
+		i := 1
 		p := []byte{}
-		for ; b[i+1] != 'e'; i++ {
-			p = append(p, b[i+1])
+		for ; b[i] != 'e'; i++ {
+			p = append(p, b[i])
 		}
 
 		n, _ := strconv.Atoi(string(p))
 
-		return n, b[i+2:] //Don't return the 'e'
+		return n, b[i+1:] //Don't return the 'e'
 
 	case 'l':
 
